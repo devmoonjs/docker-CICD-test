@@ -35,7 +35,7 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -i ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-            cd /path/to/your/app  # EC2 상의 프로젝트 경로로 이동
+            cd docker-CICD-test/  # 프로젝트 경로로 이동
             git pull origin main   # 최신 코드 가져오기
             docker build -t my-java-app .  # EC2에서 Docker 빌드
             docker stop my-app || true  # 기존 컨테이너 종료
