@@ -63,6 +63,7 @@ class ProductServiceTest {
         assertEquals(myprice, result.getMyprice());
     }
 
+
     @Test
     @DisplayName("관심 상품 희망가 - 최저가 미만으로 변경")
     void test2() {
