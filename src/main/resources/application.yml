@@ -1,0 +1,47 @@
+# ?? ?? ??
+spring:
+  application:
+    name: myselectshop
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+
+jwt:
+  secret:
+    key: ${JWT_SECRET_KEY}  # ?? ???? JWT ??? ?? ???
+
+---
+# local ???? ??
+spring:
+  profiles: local
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/shop
+    username: root
+    password: 1234  # ?? DB ????? ?? ???? ???
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+# prod ???? ??
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:mysql://${RDS_ENDPOINT}:3306/shop  # RDS ?????? ?? ??? ??
+    username: ${RDS_USERNAME}  # RDS ??? ?? ?? ??
+    password: ${RDS_PASSWORD}  # RDS ???? ?? ??
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
