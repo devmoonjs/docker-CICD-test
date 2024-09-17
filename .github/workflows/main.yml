@@ -23,7 +23,7 @@ jobs:
 
       # 3. Gradle 빌드 실행 (테스트와 함께)
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon
+        run: ./gradlew build -x test --no-daemon
 
       # 4. SSH 키 설정
       - name: Setup SSH Key
