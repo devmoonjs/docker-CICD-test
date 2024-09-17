@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'zulu'
 
       # 3. Gradle 빌드 실행 (테스트와 함께)
       - name: Build with Gradle
